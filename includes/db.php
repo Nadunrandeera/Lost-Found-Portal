@@ -2,7 +2,7 @@
 $host = 'localhost';
 $db   = 'lost_found_portal';
 $user = 'root';
-$pass = ''; // Use your MySQL password if set
+$pass = ''; 
 
 $conn = new mysqli($host, $user, $pass, $db);
 
