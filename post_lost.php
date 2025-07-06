@@ -23,7 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     move_uploaded_file($tmp_name, $image_path);
 
     // Insert into DB
-    $stmt = $conn->prepare("INSERT INTO items (user_id, type, title, description, category, image_path) VALUES (?, ?, ?, ?, ?, ?)");
+    $stmt = $conn->prepare("INSERT INTO items (user_id, title, description, type, category, image_path, status, created_at) VALUES (?, ?, ?, ?, ?, ?, 'pending', NOW())");
     $stmt->bind_param("isssss", $user_id, $type, $title, $description, $category, $image_path);
 
     if ($stmt->execute()) {

@@ -13,7 +13,7 @@ if (!isset($_GET['id'])) {
 }
 
 $item_id = $_GET['id'];
-$stmt = $conn->prepare("SELECT * FROM items WHERE id = ?");
+$stmt = $conn->prepare("SELECT * FROM items WHERE id = ? AND status = 'open'");
 $stmt->bind_param("i", $item_id);
 $stmt->execute();
 $item = $stmt->get_result()->fetch_assoc();
