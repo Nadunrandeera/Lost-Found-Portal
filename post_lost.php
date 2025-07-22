@@ -40,20 +40,25 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <html>
 <head>
     <title>Post Lost Item</title>
+    <link rel="stylesheet" type="text/css" href="css/login.css">
+    <link rel="stylesheet" type="text/css" href="css/report.css">
 </head>
-<body>
-    <h2>Report a Lost Item</h2>
-    <form method="POST" action="" enctype="multipart/form-data">
-        Title: <input type="text" name="title" required><br><br>
-        Description:<br>
-        <textarea name="description" required></textarea><br><br>
-        Category: 
-        <input type="text" name="category" required><br><br>
-        Upload Image: 
-        <input type="file" name="image" accept="image/*" required><br><br>
-        <button type="submit">Submit</button>
-    </form>
-    <br>
-    <a href="dashboard.php">Back to Dashboard</a>
+<body class="report-body">
+    <div class="report-container">
+        <h2 class="report-title">Report a Lost Item</h2>
+        <form class="report-form" method="POST" action="" enctype="multipart/form-data">
+            <label for="title" class="report-label">Title:</label>
+            <input type="text" id="title" name="title" class="report-input" required><br><br>
+            <label for="description" class="report-label">Description:</label><br>
+            <textarea id="description" name="description" class="report-textarea" required></textarea><br><br>
+            <label for="category" class="report-label">Category:</label>
+            <input type="text" id="category" name="category" class="report-input" required><br><br>
+            <label for="image" class="report-label">Upload Image:</label>
+            <input type="file" id="image" name="image" class="report-input" accept="image/*" required><br><br>
+            <button type="submit" class="report-btn">Submit</button>
+        </form>
+        <br>
+        <a href="dashboard.php" class="report-back">Back to Dashboard</a>
+    </div>
 </body>
 </html>

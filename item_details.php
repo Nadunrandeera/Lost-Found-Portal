@@ -13,7 +13,7 @@ if (!isset($_GET['id'])) {
 }
 
 $item_id = $_GET['id'];
-$stmt = $conn->prepare("SELECT * FROM items WHERE id = ? AND status = 'open'");
+$stmt = $conn->prepare("SELECT * FROM items WHERE id = ?");
 $stmt->bind_param("i", $item_id);
 $stmt->execute();
 $item = $stmt->get_result()->fetch_assoc();
@@ -39,7 +39,7 @@ if (!$item) {
     <p><?php echo nl2br(htmlspecialchars($item['description'])); ?></p>
     <strong>Status:</strong> <?php echo $item['status']; ?><br><br>
 
-    <?php if ($item['status'] == 'open') { ?>
+<?php if ($item['status'] == 'open' || $item['status'] == 'pending') { ?>
         <h3>Claim This Item</h3>
         <form method="POST" action="claim_item.php">
             <input type="hidden" name="item_id" value="<?php echo $item['id']; ?>">

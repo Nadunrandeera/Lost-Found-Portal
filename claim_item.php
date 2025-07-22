@@ -16,8 +16,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $stmt->bind_param("iss", $item_id, $claimer_name, $message);
 
     if ($stmt->execute()) {
-        // Optional: Set item as claimed
-        $update = $conn->prepare("UPDATE items SET status = 'claimed' WHERE id = ?");
+        // Optional: Set item as closed
+        $update = $conn->prepare("UPDATE items SET status = 'closed' WHERE id = ?");
         $update->bind_param("i", $item_id);
         $update->execute();
         echo "Your claim has been submitted. <a href='dashboard.php'>Go back</a>";

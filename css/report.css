@@ -1,0 +1,136 @@
+/* Report Page Styles - Consistent with Login Page */
+
+body.report-body {
+  font-family: "Poppins", "Roboto", "Segoe UI", Tahoma, Geneva, Verdana,
+    sans-serif;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.report-container {
+  background: rgba(255, 255, 255, 0.97);
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  padding: 2.5rem 2rem 2rem 2rem;
+  max-width: 450px;
+  width: 100%;
+  margin: 0 auto;
+  text-align: left;
+  box-sizing: border-box;
+}
+
+.report-title {
+  font-size: 2rem;
+  font-weight: 800;
+  background: linear-gradient(45deg, #667eea, #764ba2);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+  margin-bottom: 1.2rem;
+  letter-spacing: 1px;
+  text-align: center;
+}
+
+.report-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.01rem;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.report-group {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.5rem;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.report-label {
+  font-weight: 600;
+  color: #2c3e50;
+  font-size: 0.95rem;
+}
+
+.report-input,
+.report-textarea {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0.8rem 1rem;
+  border: 2px solid #e1e8ed;
+  border-radius: 10px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  background: white;
+  margin: 0;
+  font-family: inherit;
+}
+
+.report-input:focus,
+.report-textarea:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.report-textarea {
+  min-height: 70px;
+  resize: vertical;
+}
+
+.report-btn {
+  background: linear-gradient(45deg, #667eea, #764ba2);
+  color: white;
+  border: none;
+  padding: 0.9rem 2rem;
+  border-radius: 25px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-size: 1.1rem;
+  margin-top: 0.5rem;
+  font-family: inherit;
+}
+
+.report-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+}
+
+.report-link {
+  margin-top: 1.5rem;
+  font-size: 1rem;
+}
+
+.report-link a {
+  color: #667eea;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.2s;
+}
+
+.report-link a:hover {
+  color: #764ba2;
+  text-decoration: underline;
+}
+
+@media (max-width: 480px) {
+  .report-container {
+    padding: 1.5rem 0.5rem 1rem 0.5rem;
+  }
+  .report-title {
+    font-size: 1.5rem;
+  }
+}
