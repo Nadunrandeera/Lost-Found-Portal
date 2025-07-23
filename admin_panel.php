@@ -67,52 +67,49 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <html>
 <head>
     <title>Admin Panel - Lost & Found</title>
-    <style>
-        table { border-collapse: collapse; width: 100%; }
-        th, td { padding: 8px; border: 1px solid #ccc; }
-        img { max-width: 100px; height: auto; }
-        form { display: inline; }
-    </style>
+    <link rel="stylesheet" href="css/admin.css">
 </head>
-<body>
-    <h2>Admin Panel</h2>
-    <p><a href="dashboard.php">⬅ Back to Dashboard</a> | <a href="logout.php">Logout</a></p>
+<body class="admin-body">
+    <div class="admin-container">
+        <h2 class="admin-title">Admin Panel</h2>
+        <p><a href="dashboard.php" class="admin-link">⬅ Back to Dashboard</a> | <a href="logout.php" class="admin-link">Logout</a></p>
 
-    <table>
-        <tr>
-            <th>ID</th>
-            <th>Title</th>
-            <th>Image</th>
-            <th>Type</th>
-            <th>Status</th>
-            <th>Posted By</th>
-            <th>Actions</th>
-        </tr>
+        <table class="admin-table">
+            <tr>
+                <th>ID</th>
+                <th>Title</th>
+                <th>Image</th>
+                <th>Type</th>
+                <th>Status</th>
+                <th>Posted By</th>
+                <th>Actions</th>
+            </tr>
 
-        <?php while ($row = $items->fetch_assoc()): ?>
-        <tr>
-            <td><?php echo $row['id']; ?></td>
-            <td><?php echo htmlspecialchars($row['title']); ?></td>
-            <td><img src="<?php echo htmlspecialchars($row['image_path']); ?>" alt="image"></td>
-            <td><?php echo $row['type']; ?></td>
-            <td><?php echo $row['status']; ?></td>
-            <td><?php echo htmlspecialchars($row['posted_by']); ?></td>
-            <td>
-                <?php if ($row['status'] == 'pending'): ?>
-                <form method="POST" onsubmit="return confirm('Approve this item?');">
-                    <input type="hidden" name="approve_id" value="<?php echo $row['id']; ?>">
-                    <button type="submit">Approve</button>
-                </form>
-                <?php endif; ?>
+            <?php while ($row = $items->fetch_assoc()): ?>
+            <tr>
+                <td><?php echo $row['id']; ?></td>
+                <td><?php echo htmlspecialchars($row['title']); ?></td>
+                <td><img src="<?php echo htmlspecialchars($row['image_path']); ?>" alt="image"></td>
+                <td><?php echo $row['type']; ?></td>
+                <td><?php echo $row['status']; ?></td>
+                <td><?php echo htmlspecialchars($row['posted_by']); ?></td>
+                <td class="admin-actions">
+                    <?php if ($row['status'] == 'pending'): ?>
+                    <form method="POST" onsubmit="return confirm('Approve this item?');" style="display:inline;">
+                        <input type="hidden" name="approve_id" value="<?php echo $row['id']; ?>">
+                        <button type="submit" class="admin-btn approve">Approve</button>
+                    </form>
+                    <?php endif; ?>
 
-                <form method="POST" onsubmit="return confirm('Delete this item?');">
-                    <input type="hidden" name="delete_id" value="<?php echo $row['id']; ?>">
-                    <button type="submit">Delete</button>
-                </form>
-            </td>
-        </tr>
-        <?php endwhile; ?>
+                    <form method="POST" onsubmit="return confirm('Delete this item?');" style="display:inline;">
+                        <input type="hidden" name="delete_id" value="<?php echo $row['id']; ?>">
+                        <button type="submit" class="admin-btn delete">Delete</button>
+                    </form>
+                </td>
+            </tr>
+            <?php endwhile; ?>
 
-    </table>
+        </table>
+    </div>
 </body>
 </html>

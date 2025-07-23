@@ -70,6 +70,9 @@ $my_items = $my_stmt->get_result();
             <div class="nav-links">
                 <a href="post_lost.php" class="primary">📝 Report Lost Item</a>
                 <a href="my_claims.php" class="secondary">📋 My Claims</a>
+                <?php if ($is_admin): ?>
+                    <a href="admin_panel.php" class="admin-btn-nav">🛠️ Admin Panel</a>
+                <?php endif; ?>
                 <a href="logout.php" class="secondary">🚪 Logout</a>
             </div>
         </div>
