@@ -169,7 +169,7 @@ $my_items = $my_stmt->get_result();
                                 <span class="item-tag category"><?php echo htmlspecialchars($row['category']); ?></span>
                             </div>
                             <div class="item-actions">
-<a href="item_details.php?id=<?php echo $row['id']; ?>" class="btn btn-primary">👁️ View Details</a>
+                            <a href="item_details.php?id=<?php echo $row['id']; ?>" class="btn btn-primary">👁️ View Details</a>
                             </div>
                         </div>
                     </div>
