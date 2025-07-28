@@ -17,7 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     if ($stmt->execute()) {
         // Optional: Set item as closed
-        $update = $conn->prepare("UPDATE items SET status = 'closed' WHERE id = ?");
+        $update = $conn->prepare("UPDATE items SET status = 'claimed' WHERE id = ?");
         $update->bind_param("i", $item_id);
         $update->execute();
         echo "Your claim has been submitted. <a href='dashboard.php'>Go back</a>";
