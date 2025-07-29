@@ -20,7 +20,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $update = $conn->prepare("UPDATE items SET status = 'claimed' WHERE id = ?");
         $update->bind_param("i", $item_id);
         $update->execute();
-        echo "Your claim has been submitted. <a href='dashboard.php'>Go back</a>";
+        echo "<div class='claim-popup'>
+                <div class='claim-popup-content'>
+                    <span class='claim-popup-success'>✔️ Your claim has been submitted.</span><br>
+                    <a href='dashboard.php' class='claim-popup-link'>Go back</a>
+                </div>
+            </div>
+            <link rel='stylesheet' href='css/claim_popup.css'>";
     } else {
         echo "Error submitting claim.";
     }
